@@ -110,27 +110,31 @@
   };
 
   /* ---------- rotating words ---------- */
+  // The word slides out and the next slides in; the box smoothly resizes to fit
+  // each word, so the surrounding text never jumps or leaves a gap.
   window.UI.rotate = function (el, words, interval = 2600) {
     if (!el || !words || words.length < 2) return;
     const wrap = el.closest(".rot-wrap");
-    // lock width to the widest word so text around it doesn't jump
-    const lock = () => {
+    let widths = [], i = 0;
+    const measure = () => {
       if (!wrap) return;
       const cur = el.textContent;
-      const widths = words.map((w) => { el.textContent = w; return el.getBoundingClientRect().width; });
+      widths = words.map((w) => { el.textContent = w; return Math.ceil(el.getBoundingClientRect().width) + 2; });
       el.textContent = cur;
-      wrap.style.width = Math.ceil(Math.max(...widths)) + 4 + "px";
+      wrap.style.width = widths[i] + "px";
     };
-    lock();
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(lock); // re-measure once web fonts load
-    if (wrap) { wrap.style.textAlign = el.closest(".contact") ? "center" : "left"; }
-    let i = 0; el.textContent = words[0];
+    el.textContent = words[0];
+    measure();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure); // re-measure once web fonts load
+    addEventListener("resize", measure);
+    if (wrap) wrap.style.transition = "width 0.45s cubic-bezier(0.4, 0, 0.2, 1)";
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     setInterval(() => {
       el.style.transform = "translateY(-110%)"; el.style.opacity = "0";
       setTimeout(() => {
         i = (i + 1) % words.length;
         el.textContent = words[i];
+        if (wrap && widths[i]) wrap.style.width = widths[i] + "px";
         el.style.transition = "none"; el.style.transform = "translateY(110%)";
         requestAnimationFrame(() => requestAnimationFrame(() => {
           el.style.transition = ""; el.style.transform = "none"; el.style.opacity = "1";
