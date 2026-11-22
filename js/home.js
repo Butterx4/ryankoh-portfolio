@@ -23,8 +23,10 @@
     <div class="carousel-frame">
       <span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span>
       <div class="carousel" aria-roledescription="carousel" aria-label="Photos">
-        ${photos.map((p, i) => `<div class="slide${i === 0 ? " on" : ""}" aria-hidden="${i !== 0}">
-            <img src="${esc(p.src)}" alt="${esc(p.alt || "")}" style="${p.position ? `object-position:${esc(p.position)}` : ""}" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}>
+        ${photos.map((p, i) => `<div class="slide${i === 0 ? " on" : ""}${p.scale ? " framed" : ""}" aria-hidden="${i !== 0}">
+            ${p.scale
+              ? `<img class="slide-fg" src="${esc(p.src)}" alt="${esc(p.alt || "")}" style="width:${Number(p.scale)}%" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}>`
+              : `<img src="${esc(p.src)}" alt="${esc(p.alt || "")}" style="${p.position ? `object-position:${esc(p.position)}` : ""}" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}>`}
           </div>`).join("")}
         ${photos.length > 1 ? `
         <div class="carousel-ui">

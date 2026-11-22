@@ -57,8 +57,9 @@ window.SITE = {
 
   // Photos that flip through in the hero. Best: portrait or square photos of you.
   // `position` is optional (CSS object-position, e.g. "top" or "50% 30%").
+  // `scale` (optional, 1-100) shows the whole photo smaller in the frame, e.g. scale: 72.
   heroPhotos: [
-    { src: "assets/img/about/headshot.webp", alt: "Ryan Koh", position: "50% 25%" },
+    { src: "assets/img/about/headshot.webp", alt: "Ryan Koh", scale: 72 },
     { src: "assets/img/2fast2fail/photo-side.webp", alt: "The 2Fast2Fail drill-powered vehicle" },
     { src: "assets/img/casting/cover.webp", alt: "Cast aluminum puzzle pieces" },
     { src: "assets/img/2fast2fail/photo-3quarter.webp", alt: "2Fast2Fail three-quarter view" }

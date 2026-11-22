@@ -1,33 +1,33 @@
 /* ==========================================================================
    Ryan Koh: portfolio styles
-   Palette:
-     --raven   #0A0302   Raven Black: dark sections, headings
-     --powder  #B6DFF6   Powder Blue: accents on dark, light tints
-     --poppy   #E20A21   Poppy Red: primary accent, buttons, contact band
-   Change these variables to re-theme the whole site.
+   Palette (a nod to my drink of choice, Red Bull Iced Vanilla Berry):
+     --iced    #74C3EA   Iced blue: the can's blue. Buttons, highlights, contact band
+     --navy    #0B1F3F   Dark navy: hero, headings, links
+     --black   #0A0A0A   Black: body text, skills section, footer
+   Mostly white background. Change these variables to re-theme the whole site.
    ========================================================================== */
 
 :root {
-  --raven: #0A0302;
-  --powder: #B6DFF6;
-  --poppy: #E20A21;
+  --iced: #74C3EA;
+  --navy-brand: #0B1F3F;
+  --black: #0A0A0A;
 
   /* role names used below */
-  --ice: #EAF5FC;             /* tinted surfaces (light powder blue) */
-  --sky: var(--powder);       /* accent on dark backgrounds */
-  --blue: var(--poppy);       /* accent on light backgrounds */
-  --navy: #B5081A;            /* deeper red for small text accents */
-  --ink: var(--raven);        /* dark sections and heading text */
-  --deep: #000000;            /* footer */
+  --ice: #F1F8FD;             /* tinted surfaces (very light iced blue) */
+  --sky: var(--iced);         /* accent on dark backgrounds */
+  --blue: #1A6FA3;            /* accent on white: a deeper iced blue that stays readable */
+  --navy: var(--navy-brand);  /* small text accents */
+  --ink: var(--navy-brand);   /* dark sections and heading text */
+  --deep: var(--black);       /* footer */
 
   --bg: #FFFFFF;
   --bg-alt: var(--ice);
-  --text: #161011;
-  --muted: #5c5557;
-  --line: #e2e9ee;
-  --line-strong: #c4d7e4;
-  --on-dark: #F4F8FA;
-  --on-dark-muted: rgba(244, 248, 250, 0.72);
+  --text: #0A0A0A;
+  --muted: #55606e;
+  --line: #e3eaf0;
+  --line-strong: #c3d9e8;
+  --on-dark: #F4F9FC;
+  --on-dark-muted: rgba(244, 249, 252, 0.74);
 
   --font-head: "Archivo", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
@@ -73,9 +73,9 @@ a { color: var(--blue); }
 
 /* ---------- drafting texture for dark sections (class kept as .blueprint) ---------- */
 .blueprint {
-  background-color: var(--raven);
+  background-color: var(--navy-brand);
   background-image:
-    radial-gradient(rgba(182, 223, 246, 0.16) 1.2px, transparent 1.3px),
+    radial-gradient(rgba(116, 195, 234, 0.16) 1.2px, transparent 1.3px),
     linear-gradient(rgba(253, 239, 214, 0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(253, 239, 214, 0.06) 1px, transparent 1px);
   background-size: 22px 22px, 132px 132px, 132px 132px;
@@ -163,8 +163,8 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.05; letter-spacing: -
 }
 .btn:hover { transform: translateY(-2px); }
 .btn svg { width: 17px; height: 17px; flex: none; }
-.btn-primary { background: var(--poppy); color: #fff; box-shadow: 0 8px 22px -10px rgba(226, 10, 33, 0.8); }
-.btn-primary:hover { background: #c4081b; }
+.btn-primary { background: var(--iced); color: var(--navy-brand); box-shadow: 0 8px 22px -10px rgba(116, 195, 234, 0.9); }
+.btn-primary:hover { background: #8fd1f0; }
 .btn-ghost { border-color: rgba(234, 242, 248, 0.45); color: var(--on-dark); }
 .btn-ghost:hover { border-color: #fff; background: rgba(255, 255, 255, 0.08); }
 .btn-outline { border-color: var(--line-strong); color: var(--ink); background: #fff; }
@@ -190,7 +190,7 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.05; letter-spacing: -
 }
 .hero h1 .accent {
   display: inline-block;
-  background: linear-gradient(100deg, var(--poppy) 0%, #ff5c6c 45%, var(--poppy) 90%);
+  background: linear-gradient(100deg, var(--iced) 0%, #ffffff 45%, var(--iced) 90%);
   background-size: 220% 100%;
   -webkit-background-clip: text; background-clip: text; color: transparent;
   animation: sheen 7s ease-in-out infinite;
@@ -232,7 +232,7 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.05; letter-spacing: -
   position: absolute; left: 0; right: 0; bottom: 0; z-index: 5;
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
   padding: 0.9rem 1rem;
-  background: linear-gradient(transparent, rgba(10, 3, 2, 0.75));
+  background: linear-gradient(transparent, rgba(5, 12, 26, 0.75));
 }
 .dots { display: flex; gap: 0.45rem; }
 .dot {
@@ -242,7 +242,7 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.05; letter-spacing: -
 .dot.on { background: #fff; width: 40px; }
 .carousel-btn {
   width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.5); background: rgba(10, 3, 2, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.5); background: rgba(5, 12, 26, 0.35);
   color: #fff; cursor: pointer; transition: background 0.2s;
 }
 .carousel-btn:hover { background: rgba(255, 255, 255, 0.18); }
@@ -266,7 +266,7 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.05; letter-spacing: -
 .about-photo { position: relative; }
 .about-photo img {
   width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 25%;
-  border-radius: 50%; border: 6px solid #fff; box-shadow: 0 0 0 1.5px var(--line-strong), 0 24px 50px -24px rgba(10, 3, 2, 0.5);
+  border-radius: 50%; border: 6px solid #fff; box-shadow: 0 0 0 1.5px var(--line-strong), 0 24px 50px -24px rgba(5, 12, 26, 0.5);
 }
 .about-photo::before {
   content: ""; position: absolute; inset: -18px; border-radius: 50%;
@@ -323,14 +323,14 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.05; letter-spacing: -
   overflow: hidden; text-decoration: none; color: inherit;
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s;
 }
-.card:hover { transform: translateY(-4px); border-color: var(--sky); box-shadow: 0 22px 40px -24px rgba(10, 3, 2, 0.45); }
+.card:hover { transform: translateY(-4px); border-color: var(--sky); box-shadow: 0 22px 40px -24px rgba(5, 12, 26, 0.45); }
 .card-img { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--ice); }
 .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease); }
 .card:hover .card-img img { transform: scale(1.04); }
 .card-num {
   position: absolute; top: 0.8rem; left: 0.8rem; z-index: 1;
   font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.08em;
-  background: rgba(10, 3, 2, 0.85); color: #fff; padding: 0.25rem 0.55rem; border-radius: 4px;
+  background: rgba(5, 12, 26, 0.85); color: #fff; padding: 0.25rem 0.55rem; border-radius: 4px;
 }
 .card-body { padding: 1.2rem 1.3rem 1.4rem; display: flex; flex-direction: column; flex: 1; }
 .card-meta { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.45rem; }
@@ -341,7 +341,7 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.05; letter-spacing: -
 .award {
   display: inline-flex; align-items: center; gap: 0.4rem; align-self: flex-start;
   margin-top: 0.9rem; font-size: 0.75rem; font-weight: 600; color: var(--navy);
-  background: #fdeaec; border: 1px solid #f7b7be; padding: 0.3rem 0.65rem; border-radius: 4px;
+  background: #e4f3fb; border: 1px solid #a9daf1; padding: 0.3rem 0.65rem; border-radius: 4px;
 }
 .award svg { width: 13px; height: 13px; }
 .card-more {
@@ -364,13 +364,13 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.05; letter-spacing: -
   content: ""; position: absolute; left: 4px; top: 1.6rem; width: 16px; height: 16px; border-radius: 50%;
   background: #fff; border: 3px solid var(--sky);
 }
-.xp.current::before { border-color: var(--blue); background: var(--blue); box-shadow: 0 0 0 5px rgba(226, 10, 33, 0.15); }
+.xp.current::before { border-color: var(--blue); background: var(--blue); box-shadow: 0 0 0 5px rgba(11, 31, 63, 0.15); }
 .xp-card {
   display: grid; grid-template-columns: 1fr auto; gap: 0.5rem 2rem; align-items: start;
   background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem 1.6rem;
   text-decoration: none; color: inherit; transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s var(--ease);
 }
-.xp-card:hover { border-color: var(--sky); box-shadow: 0 18px 36px -24px rgba(10, 3, 2, 0.45); transform: translateX(4px); }
+.xp-card:hover { border-color: var(--sky); box-shadow: 0 18px 36px -24px rgba(5, 12, 26, 0.45); transform: translateX(4px); }
 .xp-company { font-family: var(--font-head); font-size: 1.35rem; font-weight: 700; color: var(--ink); }
 .xp-role { font-weight: 600; color: var(--navy); font-size: 0.95rem; }
 .xp-date { font-family: var(--font-mono); font-size: 0.74rem; color: var(--blue); letter-spacing: 0.06em; text-transform: uppercase; text-align: right; white-space: nowrap; }
@@ -430,8 +430,8 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.05; letter-spacing: -
 .detail-hero .sub { color: var(--on-dark-muted); font-size: 1.05rem; }
 .detail-meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; margin-top: 1.4rem; font-family: var(--font-mono); font-size: 0.76rem; color: var(--sky); letter-spacing: 0.04em; }
 .detail-meta span { display: inline-flex; gap: 0.4rem; align-items: center; }
-.detail-hero .tags .tag { background: rgba(255, 255, 255, 0.08); border-color: rgba(182, 223, 246, 0.4); color: var(--on-dark); }
-.detail-hero .award { background: rgba(182, 223, 246, 0.2); border-color: rgba(182, 223, 246, 0.5); color: #fff; }
+.detail-hero .tags .tag { background: rgba(255, 255, 255, 0.08); border-color: rgba(116, 195, 234, 0.4); color: var(--on-dark); }
+.detail-hero .award { background: rgba(116, 195, 234, 0.2); border-color: rgba(116, 195, 234, 0.5); color: #fff; }
 .detail-cover { position: relative; padding: 14px; }
 .detail-cover img { width: 100%; border-radius: var(--radius); aspect-ratio: 4 / 3; object-fit: cover; cursor: zoom-in; }
 
@@ -532,7 +532,7 @@ td:not(:first-child), th:not(:first-child) { font-family: var(--font-mono); text
   .hamburger { display: block; }
   .nav-links {
     position: absolute; top: var(--nav-h); left: 0; right: 0; flex-direction: column; gap: 0;
-    background: var(--bg); color: var(--ink); box-shadow: 0 12px 24px -12px rgba(10, 3, 2, 0.35);
+    background: var(--bg); color: var(--ink); box-shadow: 0 12px 24px -12px rgba(5, 12, 26, 0.35);
     max-height: 0; overflow: hidden; transition: max-height 0.35s var(--ease);
   }
   .nav-links.open { max-height: 420px; }
@@ -573,20 +573,32 @@ td:not(:first-child), th:not(:first-child) { font-family: var(--font-mono); text
   .reveal { opacity: 1; transform: none; }
 }
 
-/* contact band: bold Poppy Red so it reads apart from the black Skills section */
+/* contact band: the can's iced blue, with navy text */
 .contact-band {
-  background-color: var(--poppy);
-  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1.2px, transparent 1.3px);
+  background-color: var(--iced);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.35) 1.2px, transparent 1.3px);
   background-size: 22px 22px;
-  color: #fff;
+  color: var(--navy-brand);
 }
-.contact-band .label { color: #fff; }
-.contact-band .rot-word { color: var(--raven); }
-.contact-band p { color: rgba(255, 255, 255, 0.88); }
-.contact-band .btn-primary { background: var(--raven); color: #fff; box-shadow: 0 8px 22px -10px rgba(0, 0, 0, 0.7); }
-.contact-band .btn-primary:hover { background: #2a1a1a; }
-.contact-band .btn-ghost { border-color: rgba(255, 255, 255, 0.7); color: #fff; }
-.contact-band .btn-ghost:hover { background: rgba(255, 255, 255, 0.12); border-color: #fff; }
+.contact-band .label { color: var(--navy-brand); }
+.contact-band h2 { color: var(--navy-brand); }
+.contact-band .rot-word { color: var(--navy-brand); background: #fff; padding: 0 0.18em; border-radius: 6px; }
+.contact-band p { color: rgba(11, 31, 63, 0.82); }
+.contact-band .btn-primary { background: var(--navy-brand); color: #fff; box-shadow: 0 8px 22px -10px rgba(11, 31, 63, 0.7); }
+.contact-band .btn-primary:hover { background: #17325f; }
+.contact-band .btn-ghost { border-color: rgba(11, 31, 63, 0.55); color: var(--navy-brand); }
+.contact-band .btn-ghost:hover { background: rgba(255, 255, 255, 0.3); border-color: var(--navy-brand); }
+
+/* skills band is black (hero is navy) */
+#skills.blueprint { background-color: var(--black); }
+
+/* hero photos with `scale` set: the whole photo sits smaller in the frame on a soft iced-blue backdrop */
+.slide.framed { background: linear-gradient(160deg, #F4F9FC 0%, #CFE8F6 100%); }
+.slide img.slide-fg {
+  position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%);
+  height: auto; max-height: 80%; object-fit: contain; border-radius: 4px;
+  box-shadow: 0 18px 40px -20px rgba(11, 31, 63, 0.55);
+}
 
 /* inline icons default to text size */
 svg { width: 1em; height: 1em; flex: none; }

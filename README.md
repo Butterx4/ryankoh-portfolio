@@ -1,8 +1,9 @@
 # Ryan Koh: Portfolio
 
 Personal portfolio site, built with plain HTML, CSS, and JavaScript and hosted free on GitHub Pages.
+The colors (navy, black, and an iced blue) are borrowed from my drink of choice, the Red Bull Iced Vanilla Berry can.
 
-**Live site:** https://butterx4.github.io
+**Live site:** https://butterx4.github.io/ryankoh-portfolio/ (custom domain coming soon)
 
 ## How it's organized
 
