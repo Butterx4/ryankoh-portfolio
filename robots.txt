@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://butterx4.github.io/ryankoh-portfolio/sitemap.xml
